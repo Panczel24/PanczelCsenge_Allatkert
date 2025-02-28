@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AllatkertOOp
 {
-    internal class Viz
+    internal class Hideg
     {
         int sebesseg;
         string nev;
@@ -18,7 +18,7 @@ namespace AllatkertOOp
         public string Nem { get => nem; set => nem = value; }
         public int Eletkor { get => eletkor; set => eletkor = value; }
 
-        public Viz(int sebesseg, string nev, string nem, int eletkor)
+        public Hideg(int sebesseg, string nev, string nem, int eletkor)
         {
             Sebesseg = sebesseg;
             Nev = nev;
