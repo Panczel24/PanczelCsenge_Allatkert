@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Allatkert allatkert = new Allatkert();
+            allatkert.Beolvas();
+            allatkert.KibolMennyi();
+            allatkert.Verseny();
         }
     }
 }
