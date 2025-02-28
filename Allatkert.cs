@@ -8,5 +8,6 @@ namespace AllatkertOOp
 {
     internal class Allatkert
     {
+        
     }
 }
