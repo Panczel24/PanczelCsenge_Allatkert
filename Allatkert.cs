@@ -33,10 +33,10 @@ namespace AllatkertOOp
 
         public void Beolvas()
         {
-            viziallat.Add(new Viz(5, "cetcápa", "hím", 2));
+            viziallat.Add(new Viz(1, "cetcápa", "hím", 2));
             hidegallat.Add(new Hideg(6, "pézsmatulok", "hím", 5));
-            mediterranallat.Add(new Mediterrán(55, "dámszarvas ", "nőstény", 3));
-            melegallat.Add(new Meleg(8, "oroszlán ", "nőstény", 1));
+            mediterranallat.Add(new Mediterrán(5, "dámszarvas ", "nőstény", 3));
+            melegallat.Add(new Meleg(9, "gepárd ", "nőstény", 1));
             tropusiallat.Add(new Trópusi(5, "pókmajom ", "hím", 6));
 
         }
@@ -134,80 +134,76 @@ namespace AllatkertOOp
             //}
         }
 
+        public void Lakosok()
+        {
+            string[] neve = new string[5];
+            neve[0] = viziallat[0].Nev;
+            neve[1] = hidegallat[0].Nev;
+            neve[2] = mediterranallat[0].Nev;
+            neve[3] = melegallat[0].Nev;
+            neve[4] = tropusiallat[0].Nev;
+            Console.WriteLine($"Az állatkert lakosai:{neve[0]}, {neve[1]}, {neve[2]}, {neve[3]}, {neve[4]}");
+        }
+
 
         public void Verseny()
         {
-            List<string> nev = new List<string>();
-            List<int> sebesseg = new List<int>();
+            //nemigazán értettem ahogy Laci próbált segíteni, ezért én máshogy csináltam meg
+            string[] neve = new string[5];
+            neve[0] = viziallat[0].Nev;
+            neve[1] = hidegallat[0].Nev;
+            neve[2] = mediterranallat[0].Nev;
+            neve[3] = melegallat[0].Nev;
+            neve[4] = tropusiallat[0].Nev;
 
-            string[] neve = new string[6];
-            neve[0] = viziallat[1].Nev;
-            neve[1] = hidegallat[1].Nev;
-            neve[2] = mediterranallat[1].Nev;
-            neve[3] = melegallat[1].Nev;
-            neve[4] = tropusiallat[1].Nev;
-            Random rnd = new Random();
-            Console.WriteLine(neve[rnd.Next(0, 2)]);
-
-            string[] questions = new string[3];
-            questions[0] = "question1";
-            questions[1] = "question2";
-            questions[2] = "question3";
-            Console.WriteLine(questions[rnd.Next(0, 2)]);
+            
+            int[] sebesege = new int[5];
+            sebesege[0] = viziallat[0].Sebesseg;
+            sebesege[1] = hidegallat[0].Sebesseg;
+            sebesege[2] = mediterranallat[0].Sebesseg;
+            sebesege[3] = melegallat[0].Sebesseg;
+            sebesege[4] = tropusiallat[0].Sebesseg;
 
 
-            //nevük
-            for (int i = 0; i < viziallat.Count; i++)
+            //int randomIndex = r.Next(0, 5);
+            //Console.WriteLine($"A(z) {neve[randomIndex]} sebessége: {sebesege[randomIndex]} km/h");
+            //Console.WriteLine(sebesege[r.Next(0, 5)]);
+
+            int jatekos1 = r.Next(0, 5);
+            int jatekos2 = r.Next(0, 5);
+
+
+
+            Console.WriteLine("Induljon a verseny!");
+            //Console.WriteLine(neve[jatekos1] +"\n" + neve[jatekos2]); 
+            int haladas = 0;
+            int vegosszeg1 = 0;
+            int haladas2 = 0;
+            int vegosszeg2 = 0;
+
+            for (int i = 0; i < 6; i++)
             {
-                nev.Add(viziallat[1].Nev);
-            }
-            for (int i = 0; i < hidegallat.Count; i++)
-            {
-                nev.Add(hidegallat[1].Nev);
-            }
-            for (int i = 0; i < mediterranallat.Count; i++)
-            {
-                nev.Add(mediterranallat[1].Nev);
-            }
-            for (int i = 0; i < melegallat.Count; i++)
-            {
-                nev.Add(melegallat[1].Nev);
-            }
-            for (int i = 0; i < tropusiallat.Count; i++)
-            {
-                nev.Add(tropusiallat[1].Nev);
-            }
-
-            //sebességük
-            for (int i = 0; i < viziallat.Count; i++)
-            {
-                sebesseg.Add(viziallat[1].Sebesseg);
-            }
-            for (int i = 0; i < hidegallat.Count; i++)
-            {
-                sebesseg.Add(hidegallat[1].Sebesseg);
-            }
-            for (int i = 0; i < mediterranallat.Count; i++)
-            {
-                sebesseg.Add(mediterranallat[1].Sebesseg);
-            }
-            for (int i = 0; i < melegallat.Count; i++)
-            {
-                sebesseg.Add(melegallat[1].Sebesseg);
-            }
-            for (int i = 0; i < tropusiallat.Count; i++)
-            {
-                sebesseg.Add(tropusiallat[1].Sebesseg);
-            }
-
-           
+                Thread.Sleep(2000);
+                Console.Clear();
+                Console.SetCursorPosition(haladas += sebesege[jatekos1], 0);
+                Console.WriteLine(neve[jatekos1]);
+                vegosszeg1 += sebesege[jatekos1];
 
 
+                Console.SetCursorPosition(haladas2 += sebesege[jatekos2], 1);
+                Console.WriteLine(neve[jatekos2]);
+                vegosszeg2 += sebesege[jatekos2];
 
+                
+            }
+            if (vegosszeg1 > vegosszeg2)
+            {
+                Console.WriteLine($"A {neve[jatekos1]} nyert");
+            }
+            else { Console.WriteLine($"A {neve[jatekos2]} nyert"); }
 
-
-
-        } 
+            //itt sajnos nem tudom hogy hogyan lehet úgy megoldani, hogy az elején végig ottmaradjon a név, de mikor meg fut a verseny akkor O is legyen és név is az elején
+        }
     }
 
 

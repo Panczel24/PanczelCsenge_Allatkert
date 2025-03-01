@@ -6,8 +6,12 @@
         {
             Allatkert allatkert = new Allatkert();
             allatkert.Beolvas();
-            allatkert.KibolMennyi();
             allatkert.Verseny();
+            Console.WriteLine();
+            Console.WriteLine("Az állatkert kapacitása, telítettsége");
+            allatkert.KibolMennyi();
+            Console.WriteLine();
+            allatkert.Lakosok();
         }
     }
 }
